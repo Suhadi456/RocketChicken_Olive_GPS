@@ -1,0 +1,442 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9812046198",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Ganjuran, Sumbermulyo, Bantul",
+        "kabupaten": "Kabupaten Bantul",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.32052,
+          -7.92745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-5905752286",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Wates, Ngestiharjo",
+        "kabupaten": "Kabupaten Bantul",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.343749,
+          -7.800827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9811832190",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Wonosari, Baturetno, Bantul",
+        "kabupaten": "Kabupaten Bantul",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.417739,
+          -7.819115
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9751812814",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Raya Wonosari - Yogyakarta, Bandung",
+        "kabupaten": "Kabupaten Gunungkidul",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.555385,
+          -7.91393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9751922162",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Nasional, Semanu, Gunungkidul",
+        "kabupaten": "Kabupaten Gunungkidul",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.653372,
+          -7.998607
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-4331941414",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Chicken",
+        "alamat": "Gang Wuni, Depok, Catur Tunggal",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.381976,
+          -7.760482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-way-509816806",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Fried Chicken",
+        "alamat": "Jalan Kaliurang, Condongcatur, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.387691,
+          -7.748242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9678979054",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Fried Chicken",
+        "alamat": "Jalan Prambanan - Cangkringan, Tamanmartani, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.480749,
+          -7.754951
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9722467006",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Fried Chicken",
+        "alamat": "Jalan Jogja - Solo, Kalitirto, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.450424,
+          -7.782025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-2647353737",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Fried Chicken",
+        "alamat": "Jalan Jembatan Merah, Condongcatur, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.395516,
+          -7.761871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9705067776",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Fried Chicken",
+        "alamat": "Jalan Raya Purwomartani, Purwomartani, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.448341,
+          -7.752142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-way-363942989",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Fried Chicken",
+        "alamat": "Jalan Tasura, Maguwoharjo, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.423106,
+          -7.756335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-3278350034",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Fried Chicken",
+        "alamat": "Jalan Kaliurang, Sukoharjo, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.41741,
+          -7.697036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-way-613603900",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Jogja - Solo, Tirtomartani, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.467923,
+          -7.771504
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9697473727",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Berbah Utara, Tegaltirto, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.447316,
+          -7.785859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9778854723",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Kadisoka, Maguwoharjo, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.442514,
+          -7.75259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-11342743269",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Nangka III, Maguwoharjo, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.424204,
+          -7.769857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-14213378821",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Turi, Turi, Bangunkerto",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.353705,
+          -7.652696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9952295184",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Anggrek, Maguwoharjo, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.435088,
+          -7.778368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9748834883",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Piyungan - Prambanan, Bokoharjo, Jogotirto",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.482828,
+          -7.781145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-9704546104",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Raya Tajem, Wedomartani, Sleman",
+        "kabupaten": "Kabupaten Sleman",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.434218,
+          -7.739869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-node-6679855842",
+        "brand": "Olive Fried Chicken",
+        "nama": "Olive Fried Chicken",
+        "alamat": "Jalan Kemetiran Kidul, Pringgokusuman, Gedongtengen",
+        "kabupaten": "Kota Yogyakarta",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.361047,
+          -7.793581
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "nom-way-611099719",
+        "brand": "Rocket Chicken",
+        "nama": "Rocket Chicken",
+        "alamat": "Jalan Tinalan Timur, Prenggan, Kotagede",
+        "kabupaten": "Kota Yogyakarta",
+        "jam_buka": "09:00 - 21:00",
+        "sumber": "OpenStreetMap (Nominatim)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.400716,
+          -7.821203
+        ]
+      }
+    }
+  ]
+}

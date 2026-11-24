@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChickenSpot DIY — LBS &amp; GEOINT Rocket Chicken vs Olive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="landing-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-badge" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"></path>
+            <circle cx="12" cy="10" r="2.5"></circle>
+          </svg>
+        </div>
+        <div>
+          <p class="brand-title">ChickenSpot DIY</p>
+          <p class="brand-sub">LBS &amp; Geospatial Intelligence — Provinsi D.I. Yogyakarta</p>
+        </div>
+      </div>
+      <a href="./map.html" class="btn btn-primary">
+        Buka Peta Interaktif
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </header>
+
+    <main class="landing-main">
+      <section class="hero-card" aria-labelledby="hero-title">
+        <div>
+          <span class="hero-eyebrow">Final Project GPS • Cakupan Seluruh DIY</span>
+          <h1 id="hero-title">Pencarian Gerai Terdekat &amp; Pemetaan Persaingan Rocket Chicken vs Olive Fried Chicken</h1>
+          <p>
+            Aplikasi web geospasial dua-arah untuk konsumen dan analis bisnis. Membaca koordinat GPS secara real-time untuk navigasi rute tercepat, sekaligus menganalisis kepadatan gerai, zona persaingan langsung, dan <em>blank spot</em> di 5 kabupaten/kota DIY.
+          </p>
+          <div class="hero-actions">
+            <a href="./map.html?mode=lbs" class="btn btn-primary">Mode Konsumen (LBS)</a>
+            <a href="./map.html?mode=geoint" class="btn btn-accent">Mode Bisnis (GEOINT)</a>
+          </div>
+        </div>
+
+        <div class="stat-grid" aria-label="Ringkasan Dataset">
+          <div class="stat-box">
+            <div class="stat-label">Total Gerai DIY</div>
+            <div class="stat-value" id="statTotalOutlets">--</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Wilayah Studi</div>
+            <div class="stat-value">5 Kab/Kota</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Rocket Chicken</div>
+            <div class="stat-value" id="statRocket" style="color: var(--color-rocket);">--</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Olive Fried Chicken</div>
+            <div class="stat-value" id="statOlive" style="color: var(--color-olive);">--</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pillars-grid" aria-label="Dua Pilar Sistem">
+        <article class="pillar-card">
+          <div class="pillar-head">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <h2>Location-Based Service (LBS)</h2>
+          </div>
+          <p style="margin:0;color:var(--color-muted-foreground);font-size:0.9rem;">
+            Membantu pengguna menemukan gerai ayam goreng terdekat berdasarkan posisi GPS perangkat maupun pin lokasi manual.
+          </p>
+          <ul class="pillar-list">
+            <li>Pelacakan GPS real-time (<code>watchPosition</code>) plus Mode Pin Manual untuk uji skenario.</li>
+            <li>Penyaringan 2 tahap: jarak garis lurus (Haversine) lalu jarak rute jalan aktual (OSRM).</li>
+            <li>Garis rute langsung di peta, instruksi belokan, serta tautan navigasi Google Maps.</li>
+          </ul>
+        </article>
+
+        <article class="pillar-card">
+          <div class="pillar-head">
+            <div class="pillar-icon" aria-hidden="true" style="color: var(--color-accent);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="9"></circle>
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 3v2M12 19v2M3 12h2M19 12h2"></path>
+              </svg>
+            </div>
+            <h2>Geospatial Intelligence (GEOINT)</h2>
+          </div>
+          <p style="margin:0;color:var(--color-muted-foreground);font-size:0.9rem;">
+            Mengevaluasi sebaran gerai se-DIY untuk mendeteksi kejenuhan pasar dan peluang lokasi ekspansi baru.
+          </p>
+          <ul class="pillar-list">
+            <li><strong>Heatmap Kepadatan:</strong> Visualisasi klaster jenuh (gabungan maupun per brand).</li>
+            <li><strong>Buffer Analysis Dinamis:</strong> Radius $1$–$5\text{ km}$ dengan operasi spasial <em>Union</em>, <em>Intersect</em>, dan <em>Difference</em>.</li>
+            <li><strong>Pemetaan Blank Spot &amp; Overlap:</strong> Kalkulasi luas ($\text{km}^2$ &amp; %) wilayah belum terlayani per kabupaten/kota.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="team-footer">
+      <span>Kelompok: Muhammad Garnida Barreta Novianto (123240230) • Kevin Prasetya (123240231) • Candra Aji Ramadhan (123240250)</span>
+      <span>Data: OpenStreetMap &amp; Nominatim (Kurasi DIY) • Engine: Leaflet + Turf.js + OSRM</span>
+    </footer>
+  </div>
+
+  <script type="module">
+    async function loadSummary() {
+      try {
+        const res = await fetch('./data/gerai.geojson');
+        if (!res.ok) return;
+        const fc = await res.json();
+        const features = fc.features || [];
+        const rc = features.filter(f => f.properties.brand === 'Rocket Chicken').length;
+        const ol = features.filter(f => f.properties.brand === 'Olive Fried Chicken').length;
+        document.getElementById('statTotalOutlets').textContent = features.length;
+        document.getElementById('statRocket').textContent = rc;
+        document.getElementById('statOlive').textContent = ol;
+      } catch (err) {
+        console.warn('Gagal memuat ringkasan gerai:', err);
+      }
+    }
+    loadSummary();
+  </script>
+</body>
+</html>

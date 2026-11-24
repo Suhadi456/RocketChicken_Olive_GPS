@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peta LBS &amp; GEOINT — ChickenSpot DIY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin="">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Panel Kontrol Peta">
+      <div class="sidebar-header">
+        <a href="./index.html" class="brand-lockup" aria-label="Kembali ke beranda ChickenSpot DIY">
+          <div class="brand-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"></path>
+              <circle cx="12" cy="10" r="2.5"></circle>
+            </svg>
+          </div>
+          <div>
+            <p class="brand-title">ChickenSpot DIY</p>
+            <p class="brand-sub">Rocket Chicken &amp; Olive</p>
+          </div>
+        </a>
+        <button type="button" class="btn btn-secondary btn-sm mobile-toggle" id="toggleDrawerBtn" aria-expanded="true">
+          Panel
+        </button>
+      </div>
+
+      <div class="mode-tabs" role="tablist" aria-label="Mode Aplikasi">
+        <button type="button" role="tab" id="tabLbs" class="tab-btn" aria-selected="true" aria-controls="panelLbs">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+          Konsumen (LBS)
+        </button>
+        <button type="button" role="tab" id="tabGeoint" class="tab-btn" aria-selected="false" aria-controls="panelGeoint">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <circle cx="12" cy="12" r="4"></circle>
+          </svg>
+          Bisnis (GEOINT)
+        </button>
+      </div>
+
+      <div class="sidebar-body">
+        <div id="statusBanner" class="status-banner" role="status" aria-live="polite">
+          Memuat data gerai dan batas wilayah DIY...
+        </div>
+
+        <!-- PANEL 1: LBS -->
+        <section id="panelLbs" role="tabpanel" aria-labelledby="tabLbs" style="display:flex;flex-direction:column;gap:12px;">
+          <div class="panel-section">
+            <h2 class="section-title">Lokasi Pengguna</h2>
+            <div class="btn-grid">
+              <button type="button" class="btn btn-primary btn-sm" id="btnGps">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M12 2v4M12 18v4M2 12h4M18 12h4"></path>
+                </svg>
+                GPS Real-time
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btnManualPin" aria-pressed="false">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"></path>
+                </svg>
+                Pin Manual
+              </button>
+            </div>
+            <div class="btn-grid">
+              <button type="button" class="btn btn-secondary btn-sm" id="btnRecenter">Pusatkan</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="btnClearRoute">Hapus Rute</button>
+            </div>
+            <div class="meta-kv">
+              <span>Koordinat:</span>
+              <span class="mono" id="userCoordText">Belum disetel</span>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <h2 class="section-title">Filter &amp; Radius LBS</h2>
+            <div class="brand-filter" role="group" aria-label="Filter Brand">
+              <button type="button" class="chip-btn active" data-brand="ALL">Semua</button>
+              <button type="button" class="chip-btn" data-brand="Rocket Chicken">Rocket</button>
+              <button type="button" class="chip-btn" data-brand="Olive Fried Chicken">Olive</button>
+            </div>
+            <div class="control-row">
+              <label class="control-label" for="lbsRadiusRange">
+                <span>Radius Pencarian</span>
+                <span class="mono" id="lbsRadiusLabel">5 km</span>
+              </label>
+              <input type="range" id="lbsRadiusRange" min="1" max="15" step="1" value="5">
+            </div>
+          </div>
+
+          <div id="routePanel" class="route-box" hidden>
+            <div class="section-title">
+              <span>Panduan Rute</span>
+              <span class="mono" id="routeSummary"></span>
+            </div>
+            <ol id="routeSteps" class="route-steps"></ol>
+          </div>
+
+          <div class="panel-section">
+            <h2 class="section-title">
+              <span>Gerai Terdekat</span>
+              <span class="mono" id="lbsCountBadge">0</span>
+            </h2>
+            <div id="storeList" class="store-list">
+              <p style="margin:0;font-size:0.82rem;color:var(--color-muted-foreground);">
+                Aktifkan <strong>GPS Real-time</strong> atau klik <strong>Pin Manual</strong> untuk melihat gerai terdekat.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PANEL 2: GEOINT -->
+        <section id="panelGeoint" role="tabpanel" aria-labelledby="tabGeoint" hidden style="display:flex;flex-direction:column;gap:12px;">
+          <div class="panel-section">
+            <h2 class="section-title">Heatmap Kepadatan</h2>
+            <div class="control-row">
+              <label class="control-label" for="heatBrandSelect">Sumber Titik Heatmap</label>
+              <select id="heatBrandSelect" style="min-height:36px;padding:6px 8px;border-radius:6px;border:1px solid var(--color-border);background:var(--color-card);">
+                <option value="ALL">Gabungan (Rocket + Olive)</option>
+                <option value="Rocket Chicken">Khusus Rocket Chicken</option>
+                <option value="Olive Fried Chicken">Khusus Olive Fried Chicken</option>
+                <option value="NONE">Nonaktifkan Heatmap</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <h2 class="section-title">Buffer Analysis &amp; Blank Spot</h2>
+            <div class="control-row">
+              <label class="control-label" for="bufferRadiusRange">
+                <span>Radius Jangkauan Layanan</span>
+                <span class="mono" id="bufferRadiusLabel">2.0 km</span>
+              </label>
+              <input type="range" id="bufferRadiusRange" min="1" max="5" step="0.5" value="2">
+            </div>
+            <div class="toggle-list">
+              <label class="toggle-item">
+                <span class="toggle-left">
+                  <span class="swatch" style="background:var(--color-rocket);opacity:0.65;"></span>
+                  Buffer Rocket Chicken
+                </span>
+                <input type="checkbox" id="chkBufferRocket" checked>
+              </label>
+              <label class="toggle-item">
+                <span class="toggle-left">
+                  <span class="swatch" style="background:var(--color-olive);opacity:0.65;"></span>
+                  Buffer Olive Fried Chicken
+                </span>
+                <input type="checkbox" id="chkBufferOlive" checked>
+              </label>
+              <label class="toggle-item">
+                <span class="toggle-left">
+                  <span class="swatch" style="background:var(--color-overlap);opacity:0.75;"></span>
+                  Zona Persaingan (Overlap)
+                </span>
+                <input type="checkbox" id="chkOverlap" checked>
+              </label>
+              <label class="toggle-item">
+                <span class="toggle-left">
+                  <span class="swatch" style="background:var(--color-blankspot);opacity:0.55;"></span>
+                  Zona Blank Spot DIY
+                </span>
+                <input type="checkbox" id="chkBlankSpot" checked>
+              </label>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <h2 class="section-title">Ringkasan Spasial DIY</h2>
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-title">Area Terjangkau</div>
+                <div class="kpi-val" id="kpiCoveredPct">--%</div>
+                <div class="kpi-sub" id="kpiCoveredArea">-- km²</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-title">Blank Spot</div>
+                <div class="kpi-val" id="kpiBlankPct" style="color:var(--color-accent);">--%</div>
+                <div class="kpi-sub" id="kpiBlankArea">-- km²</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-title">Overlap Kompetisi</div>
+                <div class="kpi-val" id="kpiOverlapPct" style="color:var(--color-overlap);">--%</div>
+                <div class="kpi-sub" id="kpiOverlapArea">-- km²</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-title">Total Luas DIY</div>
+                <div class="kpi-val" id="kpiTotalArea">--</div>
+                <div class="kpi-sub" id="kpiOutletSplit">RC -- / OL --</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <h2 class="section-title">Cakupan per Kabupaten/Kota</h2>
+            <table class="kab-table">
+              <thead>
+                <tr>
+                  <th>Wilayah</th>
+                  <th class="num">Gerai</th>
+                  <th class="num">Blank Spot</th>
+                </tr>
+              </thead>
+              <tbody id="kabStatsBody">
+                <tr><td colspan="3">Menghitung...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <main class="map-stage">
+      <div id="map" role="application" aria-label="Peta Interaktif DIY"></div>
+      <div class="map-overlay-top">
+        <div id="manualPinBanner" class="manual-pin-banner" hidden>
+          Klik titik mana saja di peta DIY untuk simulasi lokasi pengguna
+        </div>
+        <div class="map-legend" aria-label="Legenda Peta">
+          <div class="legend-title">Legenda Peta DIY</div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:var(--color-rocket);"></span>
+            <span>Rocket Chicken</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:var(--color-olive);"></span>
+            <span>Olive Fried Chicken</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:var(--color-primary);"></span>
+            <span>Posisi Pengguna</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch" style="background:var(--color-overlap);opacity:0.65;"></span>
+            <span>Zona Persaingan (Overlap)</span>
+          </div>
+          <div class="legend-item">
+            <span class="swatch" style="background:var(--color-blankspot);opacity:0.4;"></span>
+            <span>Blank Spot (Belum Terjangkau)</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@7.1.0/turf.min.js" crossorigin=""></script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
